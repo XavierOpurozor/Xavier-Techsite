@@ -146,7 +146,15 @@ a:hover {
   font-size: 0.9em;
 }
 
-.submit-btn {
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.submit-btn,
+.clear-btn {
   background: linear-gradient(135deg, #4f46e5, #3b82f6);
   color: white;
   font-weight: bold;
@@ -159,11 +167,13 @@ a:hover {
   cursor: pointer;
 }
 
-.submit-btn:hover {
+.submit-btn:hover,
+.clear-btn:hover {
   background: linear-gradient(135deg, #4338ca, #2563eb);
   transform: translateY(-2px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35);
 }
+
 
 /* Responsive Layout */
 @media (max-width: 768px) {
