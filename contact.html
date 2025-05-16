@@ -29,7 +29,7 @@
 
     <section>
       <h2>📝 Quick Contact Form</h2>
-      <form action="https://formspree.io/f/xjkwloyo" method="POST" class="contact-form">
+       <form action="https://formspree.io/f/xjkwloyo" method="POST" class="contact-form" target="_blank">
   <div class="form-group">
     <label for="name">Your Name</label>
     <input type="text" id="name" name="name" placeholder="e.g. Jane Doe" required />
@@ -45,15 +45,20 @@
     <textarea id="message" name="message" rows="6" placeholder="Let's build something great..." required></textarea>
   </div>
 
-  <input type="hidden" name="_gotcha" style="display:none" />
-  <input type="hidden" name="_subject" value="New message from Xavier's Github site!" />
+  <!-- Anti-spam honeypot -->
+  <input type="text" name="_gotcha" style="display:none" />
+  <input type="hidden" name="_subject" value="New message from Xavier's site!" />
 
-  <input type="submit" value="🚀 Send Message" class="submit-btn" />
+  <!-- Buttons -->
+  <div class="form-buttons">
+    <input type="submit" value="🚀 Send Message" class="submit-btn" />
+    <input type="reset" value="🧹 Clear Form" class="clear-btn" />
+  </div>
 
-
-  <p class="note">* Or reach me directly: naetoonyx@gmail.com, xopurozor@gmail.com, xavieropurozor@gmail.com</p>
+  <p class="note">* Or email me directly: naetoonyx@gmail.com, xopurozor@gmail.com, xavieropurozor@gmail.com</p>
 </form>
 
+     
 
       </form>
     </section>
