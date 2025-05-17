@@ -8,6 +8,112 @@
    <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
+  <!-- Greeting -->
+<h2 id="greeting" style="text-align:center; font-family:sans-serif; color:#2c3e50;"></h2>
+
+<!-- Typing Text -->
+<h3 style="text-align:center; font-family:sans-serif; color:#16a085;">
+  <span id="typing-text"></span><span id="cursor">|</span>
+</h3>
+
+<!-- Change Background -->
+<div style="text-align:center; margin: 20px;">
+  <button onclick="changeBackground()" style="padding:10px 20px; font-size:16px; border:none; background-color:#2980b9; color:white; border-radius:5px; cursor:pointer;">
+    Change Background
+  </button>
+</div>
+
+<!-- Light/Dark Mode Toggle -->
+<div style="text-align:center; margin: 10px;">
+  <button onclick="toggleTheme()" style="padding:10px 20px; font-size:16px; background-color:#f39c12; color:white; border:none; border-radius:5px;">
+    Toggle Light/Dark Mode
+  </button>
+</div>
+
+<!-- Visit Counter -->
+<p style="text-align:center; font-family:monospace; color:#555;">
+  You have visited this page <span id="visitCount">0</span> times.
+</p>
+
+<!-- Live Clock -->
+<h3 id="clock" style="text-align:center; font-family: monospace; color: #555;"></h3>
+
+<!-- Scroll to Top -->
+<button onclick="scrollToTop()" style="
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  padding:10px;
+  border:none;
+  background:#27ae60;
+  color:white;
+  border-radius:50%;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+">
+  ↑
+</button>
+
+<script>
+  // Greeting based on time
+  const greetingEl = document.getElementById("greeting");
+  const hour = new Date().getHours();
+  let message = hour < 12 ? "Good Morning 🌞" : hour < 18 ? "Good Afternoon ☀️" : "Good Evening 🌙";
+  greetingEl.innerText = message;
+
+  // Change background color
+  function changeBackground() {
+    const colors = ["#f1c40f", "#e67e22", "#1abc9c", "#9b59b6", "#ecf0f1", "#2ecc71", "#34495e"];
+    document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  // Live clock
+  function updateClock() {
+    const now = new Date();
+    document.getElementById("clock").innerText = "Current Time: " + now.toLocaleTimeString();
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+
+  // Typing effect
+  const text = "Welcome to Xavier's Tech Site!";
+  let index = 0;
+  function typeText() {
+    if (index < text.length) {
+      document.getElementById("typing-text").innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeText, 100);
+    }
+  }
+  typeText();
+
+  // Blinking cursor
+  setInterval(() => {
+    const cursor = document.getElementById("cursor");
+    cursor.style.opacity = cursor.style.opacity === "0" ? "1" : "0";
+  }, 500);
+
+  // Light/Dark mode toggle
+  let isDark = false;
+  function toggleTheme() {
+    document.body.style.backgroundColor = isDark ? "#ffffff" : "#2c3e50";
+    document.body.style.color = isDark ? "#000000" : "#ecf0f1";
+    isDark = !isDark;
+  }
+
+  // Page visit counter (localStorage)
+  const count = localStorage.getItem("visitCount");
+  let visitCount = count ? parseInt(count) + 1 : 1;
+  localStorage.setItem("visitCount", visitCount);
+  document.getElementById("visitCount").innerText = visitCount;
+
+  // Scroll to top button
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+</script>
+
   <header>
     <h1>About Me</h1>
     <nav>
