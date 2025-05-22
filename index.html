@@ -4,114 +4,63 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Home | Xavier's Tech Hub</title>
-  <link rel="stylesheet" href="style.css"/>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    #typing-text {
-      color: #16a085;
-    }
-
-    #greeting {
-      color: grey;
-    }
-
-    #scrollBtn {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 12px 16px;
-      background: #27ae60;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      font-size: 22px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s ease, background 0.3s;
-    }
-
-    #scrollBtn:hover {
-      transform: scale(1.1);
-    }
-
-    button.theme-toggle {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #f39c12;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    header, footer {
-      text-align: center;
-      padding: 20px;
-    }
-
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    section {
-      margin-bottom: 40px;
-    }
-  </style>
 </head>
-<body>
+<body style="font-family: sans-serif; margin: 0; padding: 0;">
 
-  <!-- Typing Text (Welcome Message) -->
-  <h3 style="text-align:center;">
+  <!-- Typing Welcome Message -->
+  <h3 style="text-align:center; color:#16a085;">
     <span id="typing-text"></span><span id="cursor">|</span>
   </h3>
 
-  <!-- Time-Based Greeting -->
-  <h2 id="greeting" style="text-align:center;"></h2>
+  <!-- Time Greeting -->
+  <h2 id="greeting" style="text-align:center; color: grey;"></h2>
 
   <!-- Live Clock -->
   <h3 id="clock" style="text-align:center; font-family: monospace; color: #555;"></h3>
 
-  <!-- Theme Toggle -->
+  <!-- Light/Dark Mode Toggle -->
   <div style="text-align:center; margin: 10px;">
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Light/Dark Mode</button>
+    <button onclick="toggleTheme()" style="padding:10px 20px; font-size:16px; background-color:#f39c12; color:white; border:none; border-radius:5px; cursor:pointer;">
+      Toggle Light/Dark Mode
+    </button>
   </div>
 
-  <!-- Scroll to Top Button -->
-  <button id="scrollBtn" onclick="scrollToTop()">↑</button>
+  <!-- Scroll to Top -->
+  <button onclick="scrollToTop()" id="scrollBtn" style="
+    display:none;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    padding:10px;
+    border:none;
+    background:#27ae60;
+    color:white;
+    border-radius:50%;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+  ">↑</button>
 
   <!-- Header -->
-  <header>
+  <header style="text-align:center; padding: 20px;">
     <h1>Welcome to Xavier's Tech World</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html" style="margin:0 10px; text-decoration:none; color:inherit;">Home</a>
+      <a href="about.html" style="margin:0 10px; text-decoration:none; color:inherit;">About</a>
+      <a href="contact.html" style="margin:0 10px; text-decoration:none; color:inherit;">Contact</a>
     </nav>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <section>
+  <!-- Main -->
+  <main style="max-width:800px; margin:auto; padding:20px;">
+    <section style="margin-bottom:40px;">
       <h2>👋 Hello, I'm Xavier</h2>
       <p>I build sleek, powerful, and modern applications from front to back. I love solving problems with code and exploring the bleeding edge of technology. Whether it’s a microservice or a beautiful UI, I’m all in.</p>
     </section>
 
-    <section>
+    <section style="margin-bottom:40px;">
       <h2>💻 What I Do</h2>
       <ul>
         <li><strong>Frontend Engineering:</strong> React, Next.js, Tailwind, animations, design systems.</li>
@@ -121,7 +70,7 @@
       </ul>
     </section>
 
-    <section>
+    <section style="margin-bottom:40px;">
       <h2>🚀 Tech Stack Highlights</h2>
       <p>Here’s a glimpse into the tools I use and love:</p>
       <ul>
@@ -134,7 +83,7 @@
       </ul>
     </section>
 
-    <section>
+    <section style="margin-bottom:40px;">
       <h2>📈 Always Evolving</h2>
       <p>I constantly experiment with new frameworks, APIs, and architectures. My current focus includes:</p>
       <ul>
@@ -147,7 +96,7 @@
   </main>
 
   <!-- Footer -->
-  <footer>
+  <footer style="text-align:center; padding: 20px;">
     &copy; 2025 Xavier • Code Hard. Dream Big.
   </footer>
 
@@ -171,13 +120,13 @@
       cursor.style.opacity = cursor.style.opacity === "0" ? "1" : "0";
     }, 500);
 
-    // Time-based greeting (no emoji, grey color)
+    // Time Greeting (no icon)
     const greetingEl = document.getElementById("greeting");
     const hour = new Date().getHours();
     const message = hour < 12 ? "Good Morning" : hour < 18 ? "Good Afternoon" : "Good Evening";
     greetingEl.innerText = message;
 
-    // Live clock
+    // Live Clock
     function updateClock() {
       const now = new Date();
       document.getElementById("clock").innerText = "Current Time: " + now.toLocaleTimeString();
@@ -185,7 +134,7 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    // Theme toggle
+    // Light/Dark Theme Toggle
     let isDark = false;
     function toggleTheme() {
       document.body.style.backgroundColor = isDark ? "#ffffff" : "#2c3e50";
@@ -193,12 +142,13 @@
       isDark = !isDark;
     }
 
-    // Scroll to top + show button on scroll
+    // Scroll Button Visibility
     const scrollBtn = document.getElementById("scrollBtn");
     window.onscroll = function () {
-      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+      scrollBtn.style.display = window.scrollY > 200 ? "block" : "none";
     };
 
+    // Scroll to top action
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
