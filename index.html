@@ -8,7 +8,7 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
-   <!-- Greeting --
+   <!-- Greeting -->
 
 <!-- Typing Text -->
 <h1 style="text-align:center; font-family:sans-serif; color:#16a085;">
@@ -16,13 +16,10 @@
 </h1>
 
 <div style="text-align: center; margin: 40px 0;">
-  <video 
-    src="Untitled ‑ Made with FlexClip.mp4" 
-    autoplay 
-    controls 
-    muted 
-    style="max-width: 50%; height: auto;"
-  ></video>
+  <video autoplay muted playsinline onended="document.querySelector('main').scrollIntoView({behavior: 'smooth'});">
+      <source src="Untitled - Made with Flexclip.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 </div>
 
 <!-- Scroll to Top -->
