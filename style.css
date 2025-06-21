@@ -37,7 +37,7 @@ p {
 }
 
 /* Layout */
-header, footer {
+footer {
   text-align: center;
   margin-bottom: 40px;
 }
@@ -253,4 +253,71 @@ h1:hover, h2:hover, h3:hover {
 
 .submit-btn:hover, .clear-btn:hover {
   animation: none;
+}
+/* Header Styles */
+header {
+  background-color: #161b22;
+  color: #58a6ff;
+  padding: 20px 40px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: 2px solid #30363d;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Navigation Links Inside Header */
+header nav {
+  margin-top: 10px;
+}
+
+header nav a {
+  color: #58a6ff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  position: relative;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Link Glow on Hover */
+header nav a:hover {
+  color: #00b4d8;
+  transform: scale(1.08);
+  text-shadow: 0 0 8px #58a6ff, 0 0 15px #58a6ff;
+}
+
+/* Underline on Hover (Optional aesthetic) */
+header nav a::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #00b4d8;
+  transition: width 0.3s;
+  margin: auto;
+}
+header nav a:hover::after {
+  width: 100%;
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  header nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header nav a {
+    margin: 0;
+    padding: 5px 0;
+  }
 }
